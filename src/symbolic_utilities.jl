@@ -80,6 +80,8 @@ function transform_expression(pinnrep::PINNRepresentation, ex; is_integral = fal
     return ex
 end
 
+Base.eps(::Type{Complex{T}}) where {T <: AbstractFloat} = eps(T)
+
 function get_ε(dim, der_num, eltypeθ)
     epsilon = cbrt(eps(eltypeθ))
     ε = zeros(eltypeθ, dim)
